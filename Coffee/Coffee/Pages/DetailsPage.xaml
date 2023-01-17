@@ -5,12 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Coffee.Pages.DetailsPage"
-             Title="Details">
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Order="Primary" IconImageSource="BalanceIcon.png" Priority="0" />
-        <ToolbarItem Order="Primary" Text="{Binding Balance, Mode=OneWay, StringFormat='${0:F0}.00'}" Priority="0" />
-    </ContentPage.ToolbarItems>
+             Title="User page">
 
     <ContentPage.Resources>
         <Style TargetType="Button"
@@ -21,17 +16,52 @@
             <Setter Property="TextColor" Value="{StaticResource AppTextColor}" />
             <Setter Property="BorderRadius" Value="5" />
         </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Margin="20">
-            <Button
-                    Text="Balance"
-                    Clicked="OnBalanceButtonClicked"
-                    HeightRequest="50"/>
-            <Button
-                    Text="Transactions"
-                    Clicked="OnTransactionsButtonClicked"
-                    HeightRequest="50"/>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Margin="20">
+                <Label  Text="Welcome to PetFinder!" Style="{StaticResource LabelStyle}" HorizontalTextAlignment="Center"/>
+                
+                <Button x:Name="HelpButton" 
+                        Text="Help"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        CornerRadius="8"
+                        Clicked="onHelpButtonClicked"
+                        Margin="30"
+                        />
+                <Button x:Name="AboutPetFinderButton"
+                        Text="About PetFinder"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        CornerRadius="8"
+                        Clicked="onAboutPetFinderButtonClicked"
+                        Margin="30"
+                        />
+                <Button x:Name="WhyTrustUsButton"
+                        Text="Why trust us"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        CornerRadius="8"
+                        Clicked="onWhyTrustUsButtonClicked"
+                        Margin="30"
+                        />
+            </StackLayout>
+            
+            <!-- bottom controls -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <Button x:Name="LoginButton" 
+                        Text="Login/Register"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="8"
+                        VerticalOptions="EndAndExpand"
+                        Clicked="onLoginButtonClicked"
+                        />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
