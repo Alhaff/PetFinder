@@ -34,31 +34,6 @@ namespace Coffee.Pages
             listView.ItemsSource.ToString();
         }
 
-        async void OnOrderCoffeeButtonClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("Order Coffee");
-            await Navigation.PushAsync(new CoffeeSelectPage
-            {
-                BindingContext = this.BindingContext
-            });
-        }
-
-        async void OnOrderDoughnutButtonClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("Order Doughnut");
-           // await Navigation.PushAsync(new DoughnutSelectPage(this.BindingContext as User, new List<CoffeeData>(), new Agreement(), "Order List:"));
-        }
-
-
-        async void OnTopUpButtonClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("Top Up");
-            await Navigation.PushAsync(new BankPage
-            {
-                BindingContext = this.BindingContext
-            });
-        }
-
         async void OnAccountDetailsButtonClicked(object sender, EventArgs e)
         {
             Console.WriteLine("Account Details");

@@ -16,23 +16,5 @@ namespace Coffee.Pages
         {
             InitializeComponent();
         }
-
-        async void OnBalanceButtonClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("Balance");
-            await Navigation.PushAsync(new BalancePage
-            {
-                BindingContext = this.BindingContext
-            });
-        }
-
-        async void OnTransactionsButtonClicked(object sender, EventArgs e)
-        {
-            Console.WriteLine("Transactions");
-            await Navigation.PushAsync(new TransactionPage
-            {
-                BindingContext = this.BindingContext
-            });
-        }
     }
 }
