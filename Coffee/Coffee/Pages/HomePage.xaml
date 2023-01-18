@@ -7,8 +7,8 @@
              x:Class="Coffee.Pages.HomePage">
 
     <ContentPage.ToolbarItems >
-        <ToolbarItem Order="Primary" IconImageSource="BalanceIcon.png" Priority="0" />
-        <ToolbarItem x:Name="HomeBalance" Order="Primary" Text="{Binding Balance, Mode=OneWay, StringFormat='${0:F0}.00'}" Priority="0" />
+        <ToolbarItem x:Name="LogOut" Order="Secondary" Text="Logout" IconImageSource="Logout.png"  Clicked="OnLogoutButtonClicked"/>
+        <ToolbarItem x:Name="Description" Text="Pet Finder" Clicked="Description_Clicked" Priority="100"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
@@ -24,30 +24,66 @@
             <Setter Property="TextColor" Value="Black"/>
             <Setter Property="FontSize" Value="30"/>
         </Style>
+
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Margin="20">
-            <Button
-                    Text="Order Coffee"
-                    Clicked="OnOrderCoffeeButtonClicked"
-                    HeightRequest="50"/>
-            <Button
-                    Text="Order Doughnut"
-                    Clicked="OnOrderDoughnutButtonClicked"
-                    HeightRequest="50"/>
-            <Button
-                    Text="Top Up"
-                    Clicked="OnTopUpButtonClicked"
-                    HeightRequest="50"/>
-            <Button
-                    Text="Account Details"
-                    Clicked="OnAccountDetailsButtonClicked"
-                    HeightRequest="50"/>
-            <Button
-                    Text="Logout"
-                    Clicked="OnLogoutButtonClicked"
-                    HeightRequest="50"
-                    VerticalOptions="EndAndExpand"/>
+        <StackLayout Orientation="Vertical">
+                <ListView x:Name="listView"
+              Margin="0"
+              HasUnevenRows="True" 
+              SeparatorColor="Black"
+              
+              >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell Height="400">
+                   
+                        
+                        <Grid Margin="5" 
+                          HorizontalOptions="Center"
+                          RowSpacing="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height ="*"/>
+                                <RowDefinition Height ="50"/>
+                                <RowDefinition Height ="40"/>
+                                <RowDefinition Height ="*"/>
+                                <RowDefinition Height ="40"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="{Binding Item2.ImagePath}"></Image>
+                            <Label Grid.Row="1" Text="{Binding Item2.PetName}" FontSize="40"/>
+                            <Label Grid.Row="2" FontSize="25"
+                               VerticalTextAlignment="Center"
+                               Text="{Binding Item2.Age, StringFormat='Age: {0}'}"
+                               />
+                            <Label Grid.Row="3" FontSize="25"
+                               Margin="2"
+                               VerticalTextAlignment="Start"
+                               HorizontalTextAlignment="Start"
+                               Text="{Binding Item1.Description}"/>
+                            <Button Grid.Row="4" Text="More info" Clicked="MoreInfoClicked"/>
+
+                        </Grid>
+                    
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+            <Grid 
+                         HeightRequest="50"
+                         HorizontalOptions="FillAndExpand"
+                         >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" x:Name="Account" Clicked="OnAccountDetailsButtonClicked" Text="Account"></Button>
+                <Button Grid.Column="1" x:Name="Home" Clicked="Home_Clicked" Text="Home"></Button>
+                <Button Grid.Column="2" x:Name="SearchTab" Text="Search" Clicked="SearchTab_Clicked"></Button>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

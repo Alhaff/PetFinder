@@ -4,6 +4,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Coffee.Data;
 using Coffee.Pages;
+using System.Collections.Generic;
+using Coffee.Models;
 
 namespace Coffee
 {
@@ -21,11 +23,10 @@ namespace Coffee
                 return database;
             }
         }
-
         public App()
         {
             InitializeComponent();
-
+            
             MainPage = new NavigationPage(new LoginPage());
         }
     }

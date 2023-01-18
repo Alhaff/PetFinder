@@ -23,6 +23,11 @@ namespace Coffee.Pages
             return (LoginUserNameEntry.Text == "" || LoginPasswordEntry.Text == "");
         }
 
+       
+
+
+       
+
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
             Console.WriteLine(LoginUserNameEntry.Text + " " + LoginPasswordEntry.Text);
@@ -30,9 +35,10 @@ namespace Coffee.Pages
             if (customer != null)
             {
                 Console.WriteLine(customer.UserName, customer.ID);
+                App.Database.LoginedUser = customer;
                 App.Current.MainPage = new NavigationPage( new HomePage
                 {
-                    BindingContext = customer as Customer
+                    BindingContext = customer as User
                 });
             }
             else
@@ -47,7 +53,7 @@ namespace Coffee.Pages
             Console.WriteLine("Register");
             await Navigation.PushAsync(new RegisterPage
             {
-                BindingContext = new Customer()
+                BindingContext = new User()
             });
         }
 

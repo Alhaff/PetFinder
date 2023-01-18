@@ -28,7 +28,7 @@ namespace Coffee.Pages
             Console.WriteLine("Sign Up");
             if (true)
             {
-                var customer = (Customer)BindingContext;
+                var customer = (User)BindingContext;
                 var checkCustomer = await App.Database.UserNameExists(customer.UserName, customer.EmailAddress);
                 if (checkCustomer != null)
                 {

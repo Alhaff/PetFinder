@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Coffee.Pages.PetPage">
+    <ContentPage.Resources>
+        <Style TargetType="Button"
+               ApplyToDerivedTypes="True"
+               CanCascade="True">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="BackgroundColor" Value="{StaticResource AndroidButtonBackgroundColor}" />
+            <Setter Property="TextColor" Value="{StaticResource AppTextColor}" />
+            <Setter Property="BorderRadius" Value="5" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listView"
+              Margin="0"
+              HasUnevenRows="True" 
+              SeparatorColor="Black"
+              
+              >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="1000">
+                            <Grid Margin="5" 
+                          HorizontalOptions="Center"
+                          RowSpacing="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height ="*"/>
+                                    <RowDefinition Height ="50"/>
+                                    <RowDefinition Height ="40"/>
+                                    <RowDefinition Height ="40"/>
+                                    <RowDefinition Height ="40"/>
+                                    <RowDefinition Height ="40"/>
+                                    <RowDefinition Height ="*"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Source="{Binding Item2.ImagePath}"></Image>
+
+                                <Label Grid.Row="1" Text="{Binding Item2.PetName}" FontSize="40"/>
+                                <StackLayout Grid.Row="2" Orientation="Horizontal">
+                                    <Label  FontSize="25"
+                               VerticalTextAlignment="Center"
+                               Text="{Binding Item2.Age, StringFormat='Age: {0}'}"
+                               />
+                                    <Label  FontSize="25"
+                               VerticalTextAlignment="Center"
+                               Text="{Binding Item2.Gender, StringFormat='Gender: {0}'}"
+                               />
+                                </StackLayout>
+                                <Label Grid.Row="3" Text="{Binding Item3.Name }" FontSize="25"/>
+                                <Label Grid.Row="4" FontSize="25"
+                               VerticalTextAlignment="Center"
+                               Text="{Binding Item3.ContactPhone, StringFormat='Телефон: {0}'}"
+                               />
+                                <Label Grid.Row="5" FontSize="25"
+                               VerticalTextAlignment="Center"
+                               Text="{Binding Item3.Address, StringFormat='Адреса: {0}'}"
+                               />
+
+                                <Label Grid.Row="6"  FontSize="25"
+                               Margin="2"
+                               VerticalTextAlignment="Start"
+                               HorizontalTextAlignment="Start"
+                               Text="{Binding Item1.Description}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid 
+                         HeightRequest="50"
+                         HorizontalOptions="FillAndExpand"
+                         >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" x:Name="Account" Clicked="OnAccountDetailsButtonClicked" Text="Account"></Button>
+                <Button Grid.Column="1" x:Name="Home" Clicked="Home_Clicked" Text="Home"></Button>
+                <Button Grid.Column="2" x:Name="SortCriteria" Text="Search"></Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

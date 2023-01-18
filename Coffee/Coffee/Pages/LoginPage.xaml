@@ -30,7 +30,7 @@
 
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Image Source="logo.PNG"
+            <Image Source="PetLogo.jpg"
                    HorizontalOptions="Center"
                    Aspect="AspectFit"/>
             <Entry Placeholder="Username"
