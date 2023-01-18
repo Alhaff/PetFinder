@@ -70,7 +70,7 @@ namespace Coffee.Pages
         
             else
             {
-                var customer = (Customer)BindingContext;
+                var customer = (User)BindingContext;
                 int amount = Int32.Parse(picker.SelectedItem.ToString().Substring(1));
                 customer.Balance += amount;
                 Console.WriteLine(amount);

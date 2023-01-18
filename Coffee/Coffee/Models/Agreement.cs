@@ -6,12 +6,13 @@ using Coffee.Models;
 
 namespace Coffee.Models
 {
-    public class Order
+    public class Agreement
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public int CustomerID { get; set; }
-        public int TotalCost { get; set; }
+        public int UserID { get; set; }
+        public string ContactPhone { get; set; }
+        public int PetID { get; set; }
         public DateTime orderTime { get; set; }
 
     }

@@ -21,8 +21,8 @@ namespace Coffee.Pages
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var order = (Order)BindingContext;
-            listView.ItemsSource = await App.Database.GetCoffeeList(order);
+            var order = (Agreement)BindingContext;
+            //listView.ItemsSource = await App.Database.GetCoffeeList(order);
         }
     }
 }

@@ -14,16 +14,16 @@ namespace Coffee.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoffeeSelectPage : ContentPage
     {
-        public static List<CoffeeData> coffeeList;
-        public static Order neworder;
+        //public static List<CoffeeData> coffeeList;
+        public static Agreement neworder;
 
         public static Boolean canOrder = false;
         public static string coffeeListText;
         public CoffeeSelectPage()
         {
             InitializeComponent();
-            neworder = new Order();
-            coffeeList = new List<CoffeeData>();
+            neworder = new Agreement();
+            //coffeeList = new List<CoffeeData>();
             coffeeListText = "Order List:";
         }
 
@@ -127,7 +127,7 @@ namespace Coffee.Pages
 
         public Boolean canPurchase(int cost)
         {
-            var customer = (Customer)BindingContext;
+            var customer = (User)BindingContext;
             if (customer.Balance < cost)
             {
                 DisplayAlert("Error", "You need to add funds to you balance", "OK");
@@ -152,17 +152,17 @@ namespace Coffee.Pages
             {
                 await App.Database.SaveOrder(neworder);
 
-                var newcoffee = new CoffeeData
-                {
-                    OrderID = neworder.ID,
-                    CoffeeName = type,
-                    Size = size,
-                    Cost = cost,
-                    SoyMilk = soy,
-                    Sugar = sugar
-                };
+                //var newcoffee = new CoffeeData
+                //{
+                //    OrderID = neworder.ID,
+                //    CoffeeName = type,
+                //    Size = size,
+                //    Cost = cost,
+                //    SoyMilk = soy,
+                //    Sugar = sugar
+                //};
 
-                coffeeList.Add(newcoffee);
+                //coffeeList.Add(newcoffee);
 
                 var text = String.Concat(size, type, " added to your order");
 
@@ -178,7 +178,7 @@ namespace Coffee.Pages
             }
         }
 
-        private void checkSpecials(Customer customer)
+        private void checkSpecials(User customer)
         {
             if(customer.SpecialCount >= 10)
             {
@@ -195,20 +195,20 @@ namespace Coffee.Pages
         {
             if (canOrder)
             {
-                canOrder = false;
-                foreach (var coffee in coffeeList)
-                {
-                    neworder.TotalCost += coffee.Cost;
-                    await App.Database.SaveCoffee(coffee);
-                }
-                var customer = (Customer)BindingContext;
-                customer.SpecialCount += coffeeList.Count;
-                checkSpecials(customer);
-                neworder.CustomerID = customer.ID;
-                neworder.orderTime = DateTime.Now;
-                await App.Database.SaveCustomer(customer);
-                await App.Database.SaveOrder(neworder);
-                await Navigation.PushAsync(new DoughnutSelectPage(customer, coffeeList, neworder, coffeeListText));
+                //canOrder = false;
+                //foreach (var coffee in coffeeList)
+                //{
+                //    neworder.TotalCost += coffee.Cost;
+                //    await App.Database.SaveCoffee(coffee);
+                //}
+                //var customer = (User)BindingContext;
+                //customer.SpecialCount += coffeeList.Count;
+                //checkSpecials(customer);
+                //neworder.UserID = customer.ID;
+                //neworder.orderTime = DateTime.Now;
+                //await App.Database.SaveCustomer(customer);
+                //await App.Database.SaveOrder(neworder);
+                //await Navigation.PushAsync(new DoughnutSelectPage(customer, coffeeList, neworder, coffeeListText));
                 
             }
             else

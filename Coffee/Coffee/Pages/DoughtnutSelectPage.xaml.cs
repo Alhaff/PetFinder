@@ -15,23 +15,23 @@ namespace Coffee.Pages
     public partial class DoughnutSelectPage : ContentPage
     {
         // FOR TESTING
-        public static List<CoffeeData> orderList;
+        //public static List<CoffeeData> orderList;
         public static string orderListText;
 
-        public static Order neworder;
-        public static Customer customer;
+        public static Agreement neworder;
+        public static User customer;
 
-        public DoughnutSelectPage(Customer _customer, List<CoffeeData> _orderlist, Order _order, string _listText)
-        {
-            InitializeComponent();
-            customer = _customer;
-            orderList = _orderlist;
-            neworder = _order;
-            orderListText = _listText;
+        //public DoughnutSelectPage(User _customer, List<CoffeeData> _orderlist, Agreement _order, string _listText)
+        //{
+        //    InitializeComponent();
+        //    customer = _customer;
+        //   // orderList = _orderlist;
+        //    neworder = _order;
+        //    orderListText = _listText;
 
-            OrderList.Text = orderListText;
-            BalanceText.Text = String.Format("${0}.00", customer.Balance);
-        }
+        //    OrderList.Text = orderListText;
+        //    BalanceText.Text = String.Format("${0}.00", customer.Balance);
+        //}
 
 
         private void ButtonPlainAdd(object sender, EventArgs e)
@@ -74,34 +74,34 @@ namespace Coffee.Pages
         private async void DoughnutAdd(string type, string size, int cost)
         {
             await App.Database.SaveOrder(neworder);
-            var newDonut = new CoffeeData
-            {
-                OrderID = neworder.ID,
-                CoffeeName = type,
-                Size = size,
-                Cost = cost
-            };
-            orderList.Add(newDonut);
-            var text = type + " doughnut added to your order";
-            BalanceText.Text = String.Format("${0}.00", customer.Balance);
-            orderListText += String.Format("{2}{0} {1}", size, type, Environment.NewLine);
-            OrderList.Text = orderListText;
+            //var newDonut = new CoffeeData
+            //{
+            //    OrderID = neworder.ID,
+            //    CoffeeName = type,
+            //    Size = size,
+            //    Cost = cost
+            //};
+            //orderList.Add(newDonut);
+            //var text = type + " doughnut added to your order";
+            //BalanceText.Text = String.Format("${0}.00", customer.Balance);
+            //orderListText += String.Format("{2}{0} {1}", size, type, Environment.NewLine);
+            //OrderList.Text = orderListText;
 
-            await DisplayAlert(text, "Place Order when done adding items", "OK");
+            //await DisplayAlert(text, "Place Order when done adding items", "OK");
         }
 
         private async void ButtonPlaceOrder(object sender, EventArgs e)
         {
-            foreach (var doughnut in orderList)
-            {
-                neworder.TotalCost += doughnut.Cost;
-                await App.Database.SaveCoffee(doughnut);
-            }
-            neworder.CustomerID = customer.ID;
-            neworder.orderTime = DateTime.Now;
-            await App.Database.SaveCustomer(customer);
-            await App.Database.SaveOrder(neworder);
-            await Navigation.PushAsync(new CoffeeConfirmPage(orderList, customer));
+            //foreach (var doughnut in orderList)
+            //{
+            //    neworder.TotalCost += doughnut.Cost;
+            //    await App.Database.SaveCoffee(doughnut);
+            //}
+            //neworder.UserID = customer.ID;
+            //neworder.orderTime = DateTime.Now;
+            //await App.Database.SaveCustomer(customer);
+            //await App.Database.SaveOrder(neworder);
+            //await Navigation.PushAsync(new CoffeeConfirmPage(orderList, customer));
 
         }
     }

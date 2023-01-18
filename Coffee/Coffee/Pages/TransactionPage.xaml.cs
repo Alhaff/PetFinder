@@ -21,7 +21,7 @@ namespace Coffee.Pages
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var customer = (Customer)BindingContext;
+            var customer = (User)BindingContext;
             listView.ItemsSource = await App.Database.GetOrderList(customer);
         }
 
@@ -29,11 +29,11 @@ namespace Coffee.Pages
         {
             if(e.SelectedItem != null)
             {
-                var a = e.SelectedItem as Order;
-                Console.WriteLine(a.CustomerID);
+                var a = e.SelectedItem as Agreement;
+                Console.WriteLine(a.UserID);
                 await Navigation.PushAsync(new CoffeeOrderPage
                 {
-                    BindingContext = e.SelectedItem as Order
+                    BindingContext = e.SelectedItem as Agreement
                 });
             }
         }

@@ -14,29 +14,29 @@ namespace Coffee.Pages
 	public partial class CoffeeConfirmPage : ContentPage
 	{
         public static string coffeeListText = "";
-        public CoffeeConfirmPage (List<CoffeeData> _coffeeList, Customer customer)
-		{
-			InitializeComponent ();
-            coffeeListText = "";
-            foreach (var coffee in _coffeeList)
-            { 
-                string sugar = (coffee.Sugar == true ? sugar = " +Sugar" : sugar = "");
-                string soy = (coffee.SoyMilk == true ? soy = " +SoyMilk" : soy = "");
-                coffeeListText += String.Format("{0} {1}{2}{3}{4}", coffee.CoffeeName, coffee.Size, sugar, soy, Environment.NewLine);
-            }
-            Console.WriteLine(coffeeListText);
-            DisplayCoffee.Text = coffeeListText;
+  //      public CoffeeConfirmPage (List<CoffeeData> _coffeeList, User customer)
+		//{
+		//	InitializeComponent ();
+  //          coffeeListText = "";
+  //          foreach (var coffee in _coffeeList)
+  //          { 
+  //              string sugar = (coffee.Sugar == true ? sugar = " +Sugar" : sugar = "");
+  //              string soy = (coffee.SoyMilk == true ? soy = " +SoyMilk" : soy = "");
+  //              coffeeListText += String.Format("{0} {1}{2}{3}{4}", coffee.CoffeeName, coffee.Size, sugar, soy, Environment.NewLine);
+  //          }
+  //          Console.WriteLine(coffeeListText);
+  //          DisplayCoffee.Text = coffeeListText;
 
-            if (customer.SpecialEnabled)
-            {
-                DisplaySpecial.IsVisible = true;
-                customer.SpecialEnabled = false;
-            }
-            else
-            {
-                DisplaySpecial.IsVisible = false;
-            }
-        }
+  //          if (customer.SpecialEnabled)
+  //          {
+  //              DisplaySpecial.IsVisible = true;
+  //              customer.SpecialEnabled = false;
+  //          }
+  //          else
+  //          {
+  //              DisplaySpecial.IsVisible = false;
+  //          }
+  //      }
 
         async void ReturnButtonClicked(object sender, EventArgs e)
         {

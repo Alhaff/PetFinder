@@ -22,7 +22,7 @@ namespace Coffee.Pages
         {
             base.OnAppearing();
 
-            var customer = (Customer)BindingContext;
+            var customer = (User)BindingContext;
 
             int remainingCoffeeNum = (int)(customer.Balance / 7);
             RemainingCoffee.Text = String.Format("You can purchase {0} more coffees", remainingCoffeeNum);

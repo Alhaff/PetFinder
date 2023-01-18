@@ -5,7 +5,7 @@ using SQLite;
 
 namespace Coffee.Models
 {
-    public class Customer
+    public class User
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }

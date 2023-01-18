@@ -17,6 +17,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                       
                         <Label Grid.Column="0" Text="{Binding ID, StringFormat='ItemID: {0}'}"/>
                         <Label Grid.Column="1" Text="{Binding Cost, StringFormat='Cost: ${0}'}"/>
                         <Label Grid.Column="2" Text="{Binding CoffeeName}"/>

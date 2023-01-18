@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Coffee.Pages.SearchPage">
+    <ContentPage.Resources>
+        <Style TargetType="Button"
+               ApplyToDerivedTypes="True"
+               CanCascade="True">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="BackgroundColor" Value="{StaticResource AndroidButtonBackgroundColor}" />
+            <Setter Property="TextColor" Value="{StaticResource AppTextColor}" />
+            <Setter Property="BorderRadius" Value="5" />
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" 
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Label Text="Вид:"></Label>
+            <Picker x:Name="PetType">
+                
+            </Picker>
+            <Label Text="Стать"></Label>
+            <Picker x:Name="PetGender">
+
+            </Picker>
+            <Label Text="Сортувати:"></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <Label Text="За часом публікації: "></Label>
+                <Button x:Name="TimeUpButton" ImageSource="ArrowUp.png"
+                        Clicked="TimeUpButton_Clicked"/>
+                <Button Margin="5,0,0,0" x:Name="TimeDownButton" ImageSource="ArrowDown.png" 
+                        Clicked="TimeDownButton_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <Label Text="За віком: "></Label>
+                <Button x:Name="AgeUpButton" ImageSource="ArrowUp.png"
+                        Clicked="AgeUpButton_Clicked"/>
+                <Button Margin="5,0,0,0" x:Name="AgeDownButton" 
+                        ImageSource="ArrowDown.png"
+                        Clicked="AgeDownButton_Clicked"/>
+            </StackLayout>
+            <Button x:Name="ApplySearch" Text="Застосувати" Clicked="ApplySearch_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
