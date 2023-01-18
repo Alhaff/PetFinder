@@ -36,7 +36,7 @@ namespace Coffee.Pages
 
         async void OnAccountDetailsButtonClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("Account Details");
+            Console.WriteLine("User Page");
             await Navigation.PushAsync(new DetailsPage
             {
                 BindingContext = this.BindingContext

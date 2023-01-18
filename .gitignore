@@ -344,3 +344,12 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+Coffee/Coffee.Android/obj/Debug/90/designtime/Resource.designer.cs
+Coffee/Coffee.Android/obj/Debug/90/designtime/build.props
+Coffee/Coffee.Android/obj/Debug/90/libraryprojectimports.cache
+Coffee/Coffee/obj/
+Coffee/Coffee/bin/
+Coffee/Coffee.Android/obj/
+Coffee/Coffee.Android/bin/
+Coffee/Coffee.Android/Coffee.Android.csproj.user
+Coffee/Coffee.Android/Resources/Resource.designer.cs
