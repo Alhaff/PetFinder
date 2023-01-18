@@ -14,10 +14,10 @@
 *.userprefs
 
 #Dont commit bin/obj
-Coffee/bin/
-Coffee/obj/
-Coffee.Android/bin/
-Coffee.Android/obj/
+Coffee/Coffee/bin/
+Coffee/Coffee/obj/
+Coffee/Coffee.Android/bin/
+Coffee/Coffee.Android/obj/
 
 # Build results
 [Dd]ebug/

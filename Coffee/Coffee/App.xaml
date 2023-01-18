@@ -7,9 +7,9 @@
              x:Class="Coffee.App">
     <Application.Resources>
         <Color x:Key="AppBackgroundColor">White</Color>
-        <Color x:Key="AndroidNavigationBarColor">#a37555</Color>
+        <Color x:Key="AndroidNavigationBarColor">#dfa158</Color>
         <Color x:Key="AndroidNavigationBarTextColor">White</Color>
-        <Color x:Key="AndroidButtonBackgroundColor">#a37555</Color>
+        <Color x:Key="AndroidButtonBackgroundColor">#dfa158</Color>
         <Color x:Key="AppTextColor">White</Color>
         <!-- Implicit styles -->
         <Style TargetType="{x:Type NavigationPage}">
